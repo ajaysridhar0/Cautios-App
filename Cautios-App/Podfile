@@ -9,4 +9,5 @@ target 'Cautios-App' do
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'RealmSwift'
 end
