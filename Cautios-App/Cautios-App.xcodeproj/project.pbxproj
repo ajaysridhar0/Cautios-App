@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7370829FC24A29C3237D0FE7 /* Pods_Cautios_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A23F768051D075E133AFDE /* Pods_Cautios_App.framework */; };
+		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
-		779CA47F232DE1DF001B7E79 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default.realm */; };
+		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
 		77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */; };
 		77AB20FE232C6C1600B80BA3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FD232C6C1600B80BA3 /* MapViewController.swift */; };
 		77AB2101232C6C1600B80BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB20FF232C6C1600B80BA3 /* Main.storyboard */; };
@@ -20,8 +21,9 @@
 /* Begin PBXFileReference section */
 		43A23F768051D075E133AFDE /* Pods_Cautios_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cautios_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
+		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
-		779CA47E232DE1B5001B7E79 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
 		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77AB20FD232C6C1600B80BA3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		771B5FA4232F0690000A1B16 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				77AB2102232C6C1700B80BA3 /* Assets.xcassets */,
+				779CA47E232DE1B5001B7E79 /* default-OR.realm */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		779CA473232D90D8001B7E79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				77AB20FF232C6C1600B80BA3 /* Main.storyboard */,
+				77AB2104232C6C1700B80BA3 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -63,7 +75,7 @@
 		779CA479232DC3CC001B7E79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				779CA47E232DE1B5001B7E79 /* default.realm */,
+				771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */,
 				779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */,
 			);
 			path = Model;
@@ -94,8 +106,7 @@
 				779CA473232D90D8001B7E79 /* Controller */,
 				779CA474232D90FC001B7E79 /* View */,
 				779CA479232DC3CC001B7E79 /* Model */,
-				77AB2102232C6C1700B80BA3 /* Assets.xcassets */,
-				77AB2104232C6C1700B80BA3 /* LaunchScreen.storyboard */,
+				771B5FA4232F0690000A1B16 /* Assets */,
 				77AB2107232C6C1700B80BA3 /* Info.plist */,
 			);
 			path = "Cautios-App";
@@ -179,7 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				779CA47F232DE1DF001B7E79 /* default.realm in Resources */,
+				779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */,
 				77AB2106232C6C1700B80BA3 /* LaunchScreen.storyboard in Resources */,
 				77AB2103232C6C1700B80BA3 /* Assets.xcassets in Resources */,
 				77AB2101232C6C1600B80BA3 /* Main.storyboard in Resources */,
@@ -255,6 +266,7 @@
 				77AB20FE232C6C1600B80BA3 /* MapViewController.swift in Sources */,
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */,
+				771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

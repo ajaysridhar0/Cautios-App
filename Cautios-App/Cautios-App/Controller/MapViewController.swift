@@ -12,12 +12,13 @@ import GoogleMaps
 import RealmSwift
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
+
     
     // TODO: Declare constants here:
     let API_KEY = "AIzaSyDjVRTh-kyxGtb8CRzvBzOsY6Ga8T5JsXM"
     
     // TODO: Declare instance variables here:
-    let realm = try! Realm()
+    let realm = try! Realm(configuration: RealmConfig.main.configuration)
     var offenders: Results<OregonOffenders>?
     var offenderMarkers = [GMSMarker]()
     let locationManager = CLLocationManager()
@@ -42,7 +43,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func loadOffenders() {
         offenders = realm.objects(OregonOffenders.self)
-    
     }
     
     // MARK: - Map Methods
@@ -56,16 +56,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func markOffenders() {
-        for i in 0...(offenders?.count ?? 1)-1 {
-            if let offender = offenders?[i] {
+        if let offenders = self.offenders {
+            if offenders.count <= 0 {
+                return
+            }
+            for i in 0...offenders.count - 1 {
                 let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: offender.residenceLatitude, longitude: offender.residenceLongitude)
-                marker.title = offender.firstName + " " + offender.middleName + " " +  offender.lastName
-                marker.snippet = "Age: " + String(offender.age)
+                marker.position = CLLocationCoordinate2D(latitude: offenders[i].residenceLatitude, longitude: offenders[i].residenceLongitude)
+                marker.title = offenders[i].firstName + " " + offenders[i].middleName + " " +  offenders[i].lastName
+                marker.snippet = "Age: " + String(offenders[i].age) + " \nHeight: " + String(offenders[i].height) + " \nWeight: " + String(offenders[i].weight)
                 marker.map = mapView
             }
         }
-        view = mapView
     }
     
     // MARK: - Location Manager Delegate Methods
@@ -81,7 +83,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             print("longitude = \(location.coordinate.longitude)")
             print("latitude = \(location.coordinate.latitude)")
             setMapViewLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 10)
-            
         }
     }
     
