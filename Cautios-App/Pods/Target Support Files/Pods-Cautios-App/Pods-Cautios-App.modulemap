@@ -1,4 +1,4 @@
-framework module Pods_Cautios_App {
+module Pods_Cautios_App {
   umbrella header "Pods-Cautios-App-umbrella.h"
 
   export *

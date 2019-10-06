@@ -3,11 +3,13 @@ platform :ios, '10.0'
 
 target 'Cautios-App' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+#use_frameworks!
+use_modular_headers!
 
   # Pods for Cautios-App
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'Google-Maps-iOS-Utils'
 pod 'RealmSwift'
 end

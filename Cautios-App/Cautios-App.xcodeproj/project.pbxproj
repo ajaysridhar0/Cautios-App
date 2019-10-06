@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7370829FC24A29C3237D0FE7 /* Pods_Cautios_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A23F768051D075E133AFDE /* Pods_Cautios_App.framework */; };
+		63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */; };
 		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
 		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
@@ -19,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		43A23F768051D075E133AFDE /* Pods_Cautios_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cautios_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
 		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		77AB2105232C6C1700B80BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77AB2107232C6C1700B80BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACBF4A4900D0A4E43168912B /* Pods-Cautios-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.release.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.release.xcconfig"; sourceTree = "<group>"; };
+		BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cautios-App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7370829FC24A29C3237D0FE7 /* Pods_Cautios_App.framework in Frameworks */,
+				63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 		C3EAE4D3DFA53237A219DDB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43A23F768051D075E133AFDE /* Pods_Cautios_App.framework */,
+				BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,7 +141,6 @@
 				77AB20F5232C6C1600B80BA3 /* Frameworks */,
 				77AB20F6232C6C1600B80BA3 /* Resources */,
 				79BF5F4F0AE7C0719060B2F4 /* [CP] Copy Pods Resources */,
-				89ED0B95FB94622BC1A35F25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,23 +214,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89ED0B95FB94622BC1A35F25 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C48BBFB90064C645D384F13B /* [CP] Check Pods Manifest.lock */ = {
