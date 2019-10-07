@@ -14,8 +14,8 @@ enum RealmConfig {
     private static var copyInitialFile: Void = {
         do {
             try FileManager.default.copyItem(at: Bundle.main.url(forResource: "default-OR", withExtension: "realm")!, to: Realm.Configuration.defaultConfiguration.fileURL!)
+            print("Copying Realm data in default configuration file complete")
         } catch{}
-        
     }()
     
     // MARK: - private configuration

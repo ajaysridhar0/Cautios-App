@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */; };
 		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
+		77322D32234AA01B0014D451 /* POItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77322D31234AA01B0014D451 /* POItem.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
 		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
 		77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */; };
@@ -21,6 +22,9 @@
 /* Begin PBXFileReference section */
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
 		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		77322D31234AA01B0014D451 /* POItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POItem.swift; sourceTree = "<group>"; };
+		77322D33234ABB010014D451 /* Cautios-App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cautios-App-Bridging-Header.h"; sourceTree = "<group>"; };
+		77322D34234ABB020014D451 /* Marker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
 		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
 		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,7 @@
 			children = (
 				771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */,
 				779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */,
+				77322D31234AA01B0014D451 /* POItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +113,8 @@
 				779CA479232DC3CC001B7E79 /* Model */,
 				771B5FA4232F0690000A1B16 /* Assets */,
 				77AB2107232C6C1700B80BA3 /* Info.plist */,
+				77322D34234ABB020014D451 /* Marker.h */,
+				77322D33234ABB010014D451 /* Cautios-App-Bridging-Header.h */,
 			);
 			path = "Cautios-App";
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 				TargetAttributes = {
 					77AB20F7232C6C1600B80BA3 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -249,6 +257,7 @@
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */,
 				771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */,
+				77322D32234AA01B0014D451 /* POItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +404,7 @@
 			baseConfigurationReference = 4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28TZGPL4X3;
 				INFOPLIST_FILE = "Cautios-App/Info.plist";
@@ -404,6 +414,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cautios-App/Cautios-App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -414,6 +426,7 @@
 			baseConfigurationReference = ACBF4A4900D0A4E43168912B /* Pods-Cautios-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28TZGPL4X3;
 				INFOPLIST_FILE = "Cautios-App/Info.plist";
@@ -423,6 +436,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cautios-App/Cautios-App-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
