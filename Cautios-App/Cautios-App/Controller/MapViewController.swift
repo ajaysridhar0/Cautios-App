@@ -35,16 +35,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // Generate Google Maps.
         GMSServices.provideAPIKey(API_KEY)
         mapView = GMSMapView(frame: view.frame)
+        
+        do {
+          // Set the map style by passing the URL of the local file.
+          if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+            mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+          } else {
+            NSLog("Unable to find style.json")
+          }
+        } catch {
+          NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
         mapView.camera = GMSCameraPosition.camera(withLatitude: 44.9429, longitude: -123.0351, zoom: 10)
         mapView.mapType = .normal
         mapView.delegate = self
         view.addSubview(mapView)
     
         // Get the user's location.
-//      locationManager.delegate = self
-//      locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//      locationManager.requestWhenInUseAuthorization()
-//      locationManager.startUpdatingLocation()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
         
         if isClustering {
             // Set up the cluster manager with default icon generator, clustering algorithm, and renderer.
@@ -57,29 +69,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             clusterManager.setDelegate(self, mapDelegate: self)
             markOffenders()
         }
-        
-//        // Load the Oregon Sex offenders from the Realm database.
-//        loadOffenders()
-//        GMSServices.provideAPIKey(API_KEY)
-//        // Get the user's location.
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
-//        // Default location in Salem, Oregon.
-//        setMapViewLocation(latitude: 44.9429, longitude: -123.0351, zoom: 10)
-//        mapView.delegate = self
-//        if isClustering {
-//            // Set up the cluster manager with default icon generator. clustering algorithm, and renderer.
-//            let iconGenerator = GMUDefaultClusterIconGenerator()
-//            let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
-//            let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
-//            clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
-//            // Perform the clustering after all the marker have been loaded with markers.
-//            clusterManager.cluster()
-//            clusterManager.setDelegate(self, mapDelegate: self)
-//            view = mapView
-//        }
     }
     
     // MARK: - Data Manipulation Methods
@@ -104,23 +93,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             if offenders.count <= 0 {
                 return
             }
-            for i in 0...offenders.count - 1 {
-//                let marker = GMSMarker()
-//                marker.position = CLLocationCoordinate2D(latitude: offenders[i].residenceLatitude, longitude: offenders[i].residenceLongitude)
-//                marker.title = offenders[i].firstName + " " + offenders[i].middleName + " " +  offenders[i].lastName
-//                marker.snippet = "Age: " + String(offenders[i].age) + " \nHeight: " + String(offenders[i].height) + " \nWeight: " + String(offenders[i].weight)
-//                marker.map = mapView
+            for offender in offenders {
+                
                 if let clusterMgn = clusterManager {
-                    print("Clustering item \(i)")
-                    let lat = offenders[i].residenceLatitude
-                    let lng = offenders[i].residenceLongitude
-                    let name = offenders[i].firstName + " " + offenders[i].lastName
-                    let item = POIItem(position: CLLocationCoordinate2D(latitude: lat, longitude: lng), name: name)
-                    clusterMgn.add(item)
+                    // print("Clustering item \(i)")
+//                    let lat = offender.residenceLatitude
+//                    let lng = offender.residenceLongitude
+//                    let name = offender.firstName + " " + offender.middleName + " " + offender.lastName
+//                    let item = POIItem(position: CLLocationCoordinate2D(latitude: lat, longitude: lng), name: name)
+//                    clusterMgn.add(item)
+//                    clusterMgn.cluster()
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2D(latitude: offender.residenceLatitude, longitude: offender.residenceLongitude)
+                    marker.title = offender.firstName + " " + offender.middleName + " " +  offender.lastName
+                    marker.snippet = "Age: " + String(offender.age) + " \nHeight: " + String(offender.height) + " \nWeight: " + String(offender.weight)
+                    marker.map = mapView
+                    mapView.delegate = self
+                    self.generatePOIItems("Name unavailable", position: marker.position)
                     clusterMgn.cluster()
                 }
+                // clusterManager.cluster()
             }
         }
+    }
+    
+    // MARK: - Add Marker to Cluster
+    func generatePOIItems(_ name: String, position: CLLocationCoordinate2D) {
+        let item = POIItem(position: position, name: name)
+        clusterManager.add(item)
     }
     
     // MARK: - Location Manager Delegate Methods
@@ -154,8 +154,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // MARK: - GMU Map Manger Delegate Methods
     /***************************************************************/
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-    
+//    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+//
+//    }
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let poiItem = marker.userData as? POIItem {
+            print(poiItem.name)
+        }
+        return false
     }
 }
 
