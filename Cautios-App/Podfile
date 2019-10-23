@@ -8,8 +8,5 @@ use_modular_headers!
 
   # Pods for Cautios-App
 source 'https://github.com/CocoaPods/Specs.git'
-pod 'GoogleMaps'
-pod 'GooglePlaces'
-pod 'Google-Maps-iOS-Utils'
 pod 'RealmSwift'
 end

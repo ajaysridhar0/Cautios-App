@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */; };
 		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
-		7724042B235983970027EC8C /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 7724042A2359835F0027EC8C /* style.json */; };
-		77322D32234AA01B0014D451 /* POItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77322D31234AA01B0014D451 /* POItem.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
 		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
 		77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */; };
@@ -24,9 +22,6 @@
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
 		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		7724042A2359835F0027EC8C /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
-		77322D31234AA01B0014D451 /* POItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POItem.swift; sourceTree = "<group>"; };
-		77322D33234ABB010014D451 /* Cautios-App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cautios-App-Bridging-Header.h"; sourceTree = "<group>"; };
-		77322D34234ABB020014D451 /* Marker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
 		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
 		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +79,6 @@
 			children = (
 				771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */,
 				779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */,
-				77322D31234AA01B0014D451 /* POItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,8 +110,6 @@
 				779CA479232DC3CC001B7E79 /* Model */,
 				771B5FA4232F0690000A1B16 /* Assets */,
 				77AB2107232C6C1700B80BA3 /* Info.plist */,
-				77322D34234ABB020014D451 /* Marker.h */,
-				77322D33234ABB010014D451 /* Cautios-App-Bridging-Header.h */,
 			);
 			path = "Cautios-App";
 			sourceTree = "<group>";
@@ -150,7 +142,6 @@
 				77AB20F4232C6C1600B80BA3 /* Sources */,
 				77AB20F5232C6C1600B80BA3 /* Frameworks */,
 				77AB20F6232C6C1600B80BA3 /* Resources */,
-				79BF5F4F0AE7C0719060B2F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,7 +191,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7724042B235983970027EC8C /* style.json in Resources */,
 				779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */,
 				77AB2106232C6C1700B80BA3 /* LaunchScreen.storyboard in Resources */,
 				77AB2103232C6C1700B80BA3 /* Assets.xcassets in Resources */,
@@ -211,23 +201,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		79BF5F4F0AE7C0719060B2F4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C48BBFB90064C645D384F13B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,7 +234,6 @@
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */,
 				771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */,
-				77322D32234AA01B0014D451 /* POItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +390,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cautios-App/Cautios-App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,7 +411,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cautios-App/Cautios-App-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
