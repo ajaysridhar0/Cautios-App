@@ -9,4 +9,5 @@ use_modular_headers!
   # Pods for Cautios-App
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'RealmSwift'
+pod 'MapViewPlus'
 end

@@ -10,9 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 import RealmSwift
+import MapViewPlus
 
-class MapViewController: UIViewController {
-    @IBOutlet weak var mapKitView: MKMapView!
+class OffenderMapViewController: UIViewController {
+    // Outlets
+    @IBOutlet weak var mapView: MapViewPlus!
+    
     
     // TODO: Declare instance variables here:
     let locationManager = CLLocationManager()
@@ -20,12 +23,10 @@ class MapViewController: UIViewController {
     var currentCoordinate: CLLocationCoordinate2D!
     let realm = try! Realm(configuration: RealmConfig.main.configuration)
     var offenders: Results<OregonOffenders>?
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapKitView.delegate = self
+        mapView.delegate = self as? MKMapViewDelegate
         checkLocationServices()
         loadOffenders()
         annotateOffenders()
@@ -44,7 +45,7 @@ class MapViewController: UIViewController {
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-            mapKitView.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: true)
         }
     }
     
@@ -53,6 +54,7 @@ class MapViewController: UIViewController {
             if offenders.count <= 0 {
                 return
             }
+            var annotations: [AnnotationPlus] = []
             for offender in offenders {
             // print("Clustering item \(i)")
                 let lat = offender.residenceLatitude
@@ -61,7 +63,7 @@ class MapViewController: UIViewController {
                 let address = (offender.residenceStreetNumber + " " + offender.residenceStreetName + " " + offender.residenceCity + ", " + offender.residenceState + " " + String(offender.residenceZip)).uppercased()
                 let inputFormatter = DateFormatter()
                 inputFormatter.dateFormat = "MM/dd/yyyy"
-                guard let birthDate : Date = inputFormatter.date(from: "07/07/1960") else { fatalError() }
+                guard let birthDate : Date = inputFormatter.date(from: offender.dateOfBirth) else { fatalError() }
                 let form = DateComponentsFormatter()
                 form.maximumUnitCount = 1
                 form.unitsStyle = .full
@@ -69,15 +71,19 @@ class MapViewController: UIViewController {
                 let age = form.string(from: birthDate, to: Date())
                 var height: String = String(offender.height / 100) + "' " + String(offender.height % 100) + "\""
                 var weight = offender.weight
-                var eyeColor = offender.eyes == "BLU" ? "BLUE" : (offender.eyes  == "BRO" ? "BROWN" : (offender.eyes  == "HAZ" ? "HAZEL" : (offender.eyes  == "GRY" ? "GRAY" : (offender.eyes  == "GRN" ? "GREEN" : (offender.eyes  == "BLK" ? "BLACK" : ("Not available"))))))
-                var hairColor = offender.hair == "BLN" ? "BLOND" : (offender.hair  == "BRO" ? "BROWN" : (offender.hair  == "WHI" ? "WHITE" : (offender.hair  == "GRY" ? "GRAY" : (offender.hair  == "RED" ? "RED" : (offender.hair  == "BLK" ? "BLACK" : ("Not available"))))))
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(lat, lng)
-                annotation.title = name
-                annotation.subtitle = "Address: \(address) \nAge: \(age!) Height: \(height) \nWeight: \(weight) lbs \nHair Color: \(hairColor) \nEye Color: \(eyeColor)"
-                mapKitView.addAnnotation(annotation)
-                
+                var eyeColor = offender.eyes == "BLU" ? "Blue" : (offender.eyes  == "BRO" ? "Brown" : (offender.eyes  == "HAZ" ? "Hazel" : (offender.eyes  == "GRY" ? "Gray" : (offender.eyes  == "GRN" ? "Green" : (offender.eyes  == "BLK" ? "Black" : ("Not available"))))))
+                var hairColor = offender.hair == "BLN" ? "Blond" : (offender.hair  == "BRO" ? "Brown" : (offender.hair  == "WHI" ? "White" : (offender.hair  == "GRY" ? "Gray" : (offender.hair  == "RED" ? "Red" : (offender.hair  == "BLK" ? "Black" : ("Not available"))))))
+                var info = "Address: \(address) \nAge: \(age!) \nHeight: \(height) \nWeight: \(weight) lbs \nHair Color: \(hairColor) \nEye Color: \(eyeColor)"
+//                let annotation = MKPointAnnotation()
+//                annotation.coordinate = CLLocationCoordinate2DMake(lat, lng)
+//                annotation.title = name
+//                annotation.subtitle = "Address: \(address) \nAge: \(age!) Height: \(height) \nWeight: \(weight) lbs \nHair Color: \(hairColor) \nEye Color: \(eyeColor)"
+//                mapKitView.addAnnotation(annotation)
+                let viewModel = OffenderCalloutViewModel(name: name, info: info)
+                let annotation = AnnotationPlus(viewModel: viewModel, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng))
+                annotations.append(annotation)
             }
+            mapView.setup(withAnnotations: annotations)
         }
     }
     
@@ -104,7 +110,7 @@ class MapViewController: UIViewController {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            mapKitView.showsUserLocation = true
+            mapView.showsUserLocation = true
             centerViewOnUserLocation()
             break
         case .denied:
@@ -126,12 +132,12 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
+extension OffenderMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         guard let location = locations.last else { return }
         currentCoordinate = location.coordinate
-        mapKitView.userTrackingMode = .followWithHeading
+        mapView.userTrackingMode = .followWithHeading
 //        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
 //        mapKitView.setRegion(region, animated: true)
 //
@@ -143,18 +149,31 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
-extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
-//        }
-//
-//        annotationView?.canShowCallout = true
-//        return annotationView
-//    }
-//
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        print("The annotation was selected \(view.annotation?.title)")
-//    }
+extension OffenderMapViewController: MapViewPlusDelegate {
+    func mapView(_ mapView: MapViewPlus, imageFor annotation: AnnotationPlus) -> UIImage {
+        return UIImage(named: "annotation-1.png")!
+    }
+    
+    func mapView(_ mapView: MapViewPlus, calloutViewFor annotationView: AnnotationViewPlus) -> CalloutViewPlus {
+        let calloutView = Bundle.main.loadNibNamed("OffenderCalloutView", owner: nil, options: nil)!.first as! OffenderCalloutView
+        return calloutView
+    }
+    
 }
+
+
+//extension OffenderMapViewController: MKMapViewDelegate {
+////    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+////        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
+////        if annotationView == nil {
+////            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+////        }
+////
+////        annotationView?.canShowCallout = true
+////        return annotationView
+////    }
+////
+////    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+////        print("The annotation was selected \(view.annotation?.title)")
+////    }
+//}

@@ -3,19 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */; };
 		7710DA8B236537D5009D157C /* OffenderAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710DA8A236537D5009D157C /* OffenderAnnotation.swift */; };
-		7710DA8D2365395B009D157C /* OffenderInfoListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710DA8C2365395B009D157C /* OffenderInfoListManager.swift */; };
 		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
 		771F3A3C236020F80081ED8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771F3A3B236020F80081ED8A /* MapKit.framework */; };
+		772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */; };
+		772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772ADC622367C17800D546E7 /* OffenderCalloutView.xib */; };
+		772ADC682367DF1000D546E7 /* OffenderCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
 		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
 		77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */; };
-		77AB20FE232C6C1600B80BA3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FD232C6C1600B80BA3 /* MapViewController.swift */; };
+		77AB20FE232C6C1600B80BA3 /* OffenderMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */; };
 		77AB2101232C6C1600B80BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB20FF232C6C1600B80BA3 /* Main.storyboard */; };
 		77AB2103232C6C1700B80BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77AB2102232C6C1700B80BA3 /* Assets.xcassets */; };
 		77AB2106232C6C1700B80BA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AB2104232C6C1700B80BA3 /* LaunchScreen.storyboard */; };
@@ -24,14 +26,16 @@
 /* Begin PBXFileReference section */
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
 		7710DA8A236537D5009D157C /* OffenderAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderAnnotation.swift; sourceTree = "<group>"; };
-		7710DA8C2365395B009D157C /* OffenderInfoListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderInfoListManager.swift; sourceTree = "<group>"; };
 		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		771F3A3B236020F80081ED8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderCalloutViewModel.swift; sourceTree = "<group>"; };
+		772ADC622367C17800D546E7 /* OffenderCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffenderCalloutView.xib; sourceTree = "<group>"; };
+		772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OffenderCalloutView.swift; path = "Cautios-App/Controller/OffenderCalloutView.swift"; sourceTree = SOURCE_ROOT; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
 		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
 		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		77AB20FD232C6C1600B80BA3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderMapViewController.swift; sourceTree = "<group>"; };
 		77AB2100232C6C1600B80BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77AB2102232C6C1700B80BA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77AB2105232C6C1700B80BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,8 +69,8 @@
 		779CA473232D90D8001B7E79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				77AB20FD232C6C1600B80BA3 /* MapViewController.swift */,
-				7710DA8C2365395B009D157C /* OffenderInfoListManager.swift */,
+				77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */,
+				772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -76,6 +80,7 @@
 			children = (
 				77AB20FF232C6C1600B80BA3 /* Main.storyboard */,
 				77AB2104232C6C1700B80BA3 /* LaunchScreen.storyboard */,
+				772ADC622367C17800D546E7 /* OffenderCalloutView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 		779CA479232DC3CC001B7E79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */,
 				771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */,
 				779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */,
 				7710DA8A236537D5009D157C /* OffenderAnnotation.swift */,
@@ -150,6 +156,7 @@
 				77AB20F4232C6C1600B80BA3 /* Sources */,
 				77AB20F5232C6C1600B80BA3 /* Frameworks */,
 				77AB20F6232C6C1600B80BA3 /* Resources */,
+				71D0F0F9CF5592303C220802 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */,
+				772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */,
 				77AB2106232C6C1700B80BA3 /* LaunchScreen.storyboard in Resources */,
 				77AB2103232C6C1700B80BA3 /* Assets.xcassets in Resources */,
 				77AB2101232C6C1600B80BA3 /* Main.storyboard in Resources */,
@@ -209,6 +217,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		71D0F0F9CF5592303C220802 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cautios-App/Pods-Cautios-App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C48BBFB90064C645D384F13B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,8 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7710DA8D2365395B009D157C /* OffenderInfoListManager.swift in Sources */,
-				77AB20FE232C6C1600B80BA3 /* MapViewController.swift in Sources */,
+				772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */,
+				772ADC682367DF1000D546E7 /* OffenderCalloutView.swift in Sources */,
+				77AB20FE232C6C1600B80BA3 /* OffenderMapViewController.swift in Sources */,
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */,
 				771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */,
