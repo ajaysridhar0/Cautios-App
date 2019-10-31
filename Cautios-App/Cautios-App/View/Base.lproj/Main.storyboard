@@ -11,7 +11,7 @@
         <!--Offenders Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OffenderMapViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffenderMapViewController" id="BYZ-38-t0r" customClass="OffenderMapViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="670"/>
+            <point key="canvasLocation" x="-1030" y="-160"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VfA-cf-P4w">
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-Zv-ACQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-1440"/>
+            <point key="canvasLocation" x="1428" y="-160"/>
         </scene>
         <!--Offenders List-->
         <scene sceneID="dan-7b-ZLb">
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch5-1E-xQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="-743"/>
+            <point key="canvasLocation" x="694" y="-159"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Edu-1K-EVl">
@@ -79,6 +79,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DWM-JU-qsc"/>
@@ -89,23 +92,40 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWY-sV-yaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="306" y="-1106"/>
         </scene>
         <!--SOS-->
         <scene sceneID="AVh-Mw-HvZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CAT-rU-LMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="tk8-BH-ghx" sceneMemberID="viewController">
+                <viewController id="tk8-BH-ghx" customClass="SOSMessageViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T47-VO-h7o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwc-bO-aUh">
+                                <rect key="frame" x="145" y="302" width="84" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendHelpMessage:" destination="tk8-BH-ghx" eventType="touchUpInside" id="a8b-ne-hmn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8k4-jr-WnD"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="SOS" image="message.circle.fill" catalog="system" id="QP0-oX-oq0"/>
+                    <connections>
+                        <outlet property="sendHelpMessageButton" destination="Mwc-bO-aUh" id="cbi-hb-PuX"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAT-rU-LMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-64"/>
+            <point key="canvasLocation" x="-230" y="-161"/>
         </scene>
     </scenes>
     <resources>

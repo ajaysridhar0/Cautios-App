@@ -10,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view tag="1000" contentMode="scaleToFill" id="iN0-l3-epB" customClass="OffenderCalloutView" customModule="Cautios_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
+            <rect key="frame" x="0.0" y="0.0" width="240" height="233"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAMES ALFRED CROTSLEY JR" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnF-qx-tkg">
@@ -44,7 +44,7 @@
                 <outlet property="infoLabel" destination="Pkt-gU-46r" id="9UT-ze-KaY"/>
                 <outlet property="nameLabel" destination="lnF-qx-tkg" id="1uM-DJ-f13"/>
             </connections>
-            <point key="canvasLocation" x="-32" y="-149.32533733133434"/>
+            <point key="canvasLocation" x="-32" y="-170.46476761619192"/>
         </view>
     </objects>
 </document>

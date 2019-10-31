@@ -12,6 +12,10 @@ import CoreLocation
 import RealmSwift
 import MapViewPlus
 
+//protocol ReceiveLocationDelegate {
+//    func receiveUserLocation(location: CLLocationCoordinate2D)
+//}
+
 class OffenderMapViewController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: MapViewPlus!
@@ -23,6 +27,7 @@ class OffenderMapViewController: UIViewController {
     var currentCoordinate: CLLocationCoordinate2D!
     let realm = try! Realm(configuration: RealmConfig.main.configuration)
     var offenders: Results<OregonOffenders>?
+//    var textMessageLocationDelegate: ReceiveLocationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,22 @@ class OffenderMapViewController: UIViewController {
     func loadOffenders() {
         offenders = realm.objects(OregonOffenders.self)
     }
+    
+    // MARK: - Prepare for Segue Methods
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        if segue.identifier == "sendDataBackwards" {
+////    //            let firstVC = segue.destination as! ViewController
+////    //            firstVC.delegate = self
+////
+////        }
+//        print("seeeeguueeee")
+//        if let userLocation: CLLocationCoordinate2D = currentCoordinate {
+//            locationDelegate?.receiveUserLocation(location: userLocation)
+//            dismiss(animated: true, completion: nil)
+//            print("user location sent")
+//        }
+//    }
+    
     
     // MARK: - Map Methods
     /***************************************************************/
@@ -137,6 +158,13 @@ extension OffenderMapViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         guard let location = locations.last else { return }
         currentCoordinate = location.coordinate
+        if let userLocation: CLLocationCoordinate2D = currentCoordinate {
+            var sosMessageTab = self.tabBarController?.viewControllers?[2] as! SOSMessageViewController
+            sosMessageTab.userLocation = userLocation
+            //            textMessageLocationDelegate!.receiveUserLocation(location: userLocation)
+            // dismiss(animated: true, completion: nil)
+            print("user location sent: \(userLocation)")
+        }
         mapView.userTrackingMode = .followWithHeading
 //        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
 //        mapKitView.setRegion(region, animated: true)
@@ -160,20 +188,3 @@ extension OffenderMapViewController: MapViewPlusDelegate {
     }
     
 }
-
-
-//extension OffenderMapViewController: MKMapViewDelegate {
-////    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-////        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
-////        if annotationView == nil {
-////            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
-////        }
-////
-////        annotationView?.canShowCallout = true
-////        return annotationView
-////    }
-////
-////    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-////        print("The annotation was selected \(view.annotation?.title)")
-////    }
-//}

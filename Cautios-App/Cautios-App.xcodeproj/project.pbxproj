@@ -14,6 +14,7 @@
 		772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */; };
 		772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772ADC622367C17800D546E7 /* OffenderCalloutView.xib */; };
 		772ADC682367DF1000D546E7 /* OffenderCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */; };
+		772ADC7023680B8500D546E7 /* SOSMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */; };
 		779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */; };
 		779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */ = {isa = PBXBuildFile; fileRef = 779CA47E232DE1B5001B7E79 /* default-OR.realm */; };
 		77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderCalloutViewModel.swift; sourceTree = "<group>"; };
 		772ADC622367C17800D546E7 /* OffenderCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffenderCalloutView.xib; sourceTree = "<group>"; };
 		772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OffenderCalloutView.swift; path = "Cautios-App/Controller/OffenderCalloutView.swift"; sourceTree = SOURCE_ROOT; };
+		772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMessageViewController.swift; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
 		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
 		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +71,10 @@
 		779CA473232D90D8001B7E79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */,
 				77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */,
 				772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */,
+				772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,7 +121,6 @@
 		77AB20FA232C6C1600B80BA3 /* Cautios-App */ = {
 			isa = PBXGroup;
 			children = (
-				77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */,
 				779CA473232D90D8001B7E79 /* Controller */,
 				779CA474232D90FC001B7E79 /* View */,
 				779CA479232DC3CC001B7E79 /* Model */,
@@ -269,6 +272,7 @@
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				77AB20FC232C6C1600B80BA3 /* AppDelegate.swift in Sources */,
 				771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */,
+				772ADC7023680B8500D546E7 /* SOSMessageViewController.swift in Sources */,
 				7710DA8B236537D5009D157C /* OffenderAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
