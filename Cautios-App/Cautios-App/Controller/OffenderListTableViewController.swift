@@ -10,11 +10,18 @@ import UIKit
 import MapViewPlus
 import RealmSwift
 
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+}
+
 class OffenderListTableViewController: UITableViewController {
     // Instance variables
+    var tableViewData = [cellData]()
     var annotations: [AnnotationPlus] = []
-    var offenders: Results<OregonOffenders>?
-    let cellId = "cellId"
+//    var offenders: Results<OregonOffenders>?
+    let cellId = "cell"
     let realm = try! Realm(configuration: RealmConfig.main.configuration)
     
     override func viewDidLoad() {
@@ -22,7 +29,8 @@ class OffenderListTableViewController: UITableViewController {
         self.navigationItem.title = "Offenders"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        offenders = realm.objects(OregonOffenders.self)
+//        offenders = realm.objects(OregonOffenders.self)
+        loadTableViewData(offenders: realm.objects(OregonOffenders.self))
         tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,69 +40,75 @@ class OffenderListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return offenders?.count ?? 0
+        if tableViewData[section].opened {
+            return tableViewData[section].sectionData.count + 1
+        }
+        else {
+            return 1
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        // Configure the cell...
-        if let offender = offenders?[indexPath.row] {
-            cell.textLabel?.text = "\(offender.firstName) \(offender.middleName) \(offender.lastName) \(offender.suffix)"
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) else { return UITableViewCell() }
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            cell.backgroundColor = .black
+            return cell
         }
         else {
-            cell.textLabel?.text = ""
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) else { return UITableViewCell() }
+            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            cell.backgroundColor = .gray
+            cell.textLabel?.numberOfLines = 0;
+            cell.textLabel?.lineBreakMode = .byWordWrapping
+            return cell
         }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableViewData[indexPath.section].opened {
+            tableViewData[indexPath.section].opened = false
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        }
+        else {
+            tableViewData[indexPath.section].opened = true
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - Load the data methods
+    func loadTableViewData(offenders: Results<OregonOffenders>?) {
+        tableViewData = []
+        for offender in offenders! {
+            let address = (offender.residenceStreetNumber + " " + offender.residenceStreetName + " " + offender.residenceCity + ", " + offender.residenceState + " " + String(offender.residenceZip)).uppercased()
+            let inputFormatter = DateFormatter()
+            inputFormatter.dateFormat = "MM/dd/yyyy"
+            guard let birthDate : Date = inputFormatter.date(from: offender.dateOfBirth) else { fatalError() }
+            let form = DateComponentsFormatter()
+            form.maximumUnitCount = 1
+            form.unitsStyle = .full
+            form.allowedUnits = [.year]
+            let age = form.string(from: birthDate, to: Date())
+            let height: String = String(offender.height / 100) + "' " + String(offender.height % 100) + "\""
+            let weight = offender.weight
+            let eyeColor = offender.eyes == "BLU" ? "Blue" : (offender.eyes  == "BRO" ? "Brown" : (offender.eyes  == "HAZ" ? "Hazel" : (offender.eyes  == "GRY" ? "Gray" : (offender.eyes  == "GRN" ? "Green" : (offender.eyes  == "BLK" ? "Black" : ("Not available"))))))
+            let hairColor = offender.hair == "BLN" ? "Blond" : (offender.hair  == "BRO" ? "Brown" : (offender.hair  == "WHI" ? "White" : (offender.hair  == "GRY" ? "Gray" : (offender.hair  == "RED" ? "Red" : (offender.hair  == "BLK" ? "Black" : ("Not available"))))))
+            
+            let name = offender.firstName + " " + offender.middleName + " " + offender.lastName + " " + offender.suffix
+            
+            tableViewData.append(cellData(opened: false, title: name, sectionData: ["Address: \(address)", "Age: \(age!)", "Height: \(height)", "Hair Color: \(hairColor)", "Eye Color: \(eyeColor)"]))
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 // MARK: - Search Bar Methods
@@ -106,7 +120,7 @@ extension OffenderListTableViewController: UISearchBarDelegate {
             NSPredicate(format: "%K CONTAINS[cd] %@", property, searchBar.text!)
         }
         let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
-        offenders = realm.objects(OregonOffenders.self).filter(predicate)
+        loadTableViewData(offenders: realm.objects(OregonOffenders.self).filter(predicate))
         tableView.reloadData()
     }
     

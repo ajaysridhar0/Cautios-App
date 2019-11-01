@@ -55,12 +55,21 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4XM-lz-Lns">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="6D5-2i-gud" style="IBUITableViewCellStyleDefault" id="4XM-lz-Lns">
                                 <rect key="frame" x="0.0" y="72" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4XM-lz-Lns" id="ffP-KF-hzB">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6D5-2i-gud">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -115,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="306" y="-1106"/>
         </scene>
-        <!--Safety Contacts-->
+        <!--Help Button-->
         <scene sceneID="AVh-Mw-HvZ">
             <objects>
                 <viewController id="tk8-BH-ghx" customClass="SOSMessageViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,8 +180,8 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8k4-jr-WnD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Safety Contacts" id="02a-oD-vcg">
-                        <barButtonItem key="rightBarButtonItem" title="Add Contacts" image="plus" catalog="system" id="SNM-R2-Xfr">
+                    <navigationItem key="navigationItem" title="Help Button" id="02a-oD-vcg">
+                        <barButtonItem key="rightBarButtonItem" title="Add Contacts" image="person.badge.plus.fill" catalog="system" id="SNM-R2-Xfr">
                             <connections>
                                 <segue destination="WKZ-Bd-FQO" kind="show" id="Jo2-tX-bP6"/>
                             </connections>
@@ -212,7 +221,9 @@
                             <outlet property="delegate" destination="WKZ-Bd-FQO" id="UBq-yk-PZV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Kx2-jJ-ysi"/>
+                    <navigationItem key="navigationItem" id="Kx2-jJ-ysi">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="2Ts-rH-Aqg"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vir-p9-89b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,6 +273,7 @@
         <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="mappin.circle.fill" catalog="system" width="64" height="60"/>
         <image name="message.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="person.badge.plus.fill" catalog="system" width="64" height="58"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
