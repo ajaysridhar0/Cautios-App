@@ -17,10 +17,12 @@ struct cellData {
 }
 
 class OffenderListTableViewController: UITableViewController {
+    // Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
     // Instance variables
     var tableViewData = [cellData]()
     var annotations: [AnnotationPlus] = []
-//    var offenders: Results<OregonOffenders>?
+    var searchOffender: [cellData] = []
     let cellId = "cell"
     let realm = try! Realm(configuration: RealmConfig.main.configuration)
     
@@ -124,14 +126,22 @@ extension OffenderListTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        loadTableViewData(offenders: realm.objects(OregonOffenders.self))
+        searchBar.endEditing(true)
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
 //        if searchBar.text?.count == 0 {
-//            loadOffenders()
-//
+//            loadTableViewData(offenders: realm.objects(OregonOffenders.self))
 //            DispatchQueue.main.async {
 //                searchBar.resignFirstResponder()
 //            }
 //
 //        }
-//    }
+    }
 }
+
