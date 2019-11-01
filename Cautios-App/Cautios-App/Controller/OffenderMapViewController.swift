@@ -91,6 +91,7 @@ class OffenderMapViewController: UIViewController {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
+//            mapView.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
             centerViewOnUserLocation()
             break
         case .denied:
@@ -117,7 +118,8 @@ extension OffenderMapViewController: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         currentCoordinate = location.coordinate
         if let userLocation: CLLocationCoordinate2D = currentCoordinate {
-            let sosMessageTab = self.tabBarController?.viewControllers?[2] as! SOSMessageViewController
+            let navigationTab = self.tabBarController?.viewControllers?[2] as! UINavigationController
+            let sosMessageTab = navigationTab.topViewController as! SOSMessageViewController
             sosMessageTab.userLocation = userLocation
             print("user location sent: \(userLocation)")
         }
@@ -141,5 +143,4 @@ extension OffenderMapViewController: MapViewPlusDelegate {
         let calloutView = Bundle.main.loadNibNamed("OffenderCalloutView", owner: nil, options: nil)!.first as! OffenderCalloutView
         return calloutView
     }
-    
 }

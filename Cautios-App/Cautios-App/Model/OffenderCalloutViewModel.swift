@@ -35,3 +35,4 @@ class OffenderCalloutViewModel: CalloutViewModel {
         self.offender = offender
     }
 }
+

@@ -1,29 +1,19 @@
 //
-//  OffenderListTableTableViewController.swift
+//  ContactsTableViewController.swift
 //  Cautios-App
 //
-//  Created by Ajay Sridhar on 10/31/19.
+//  Created by Ajay Sridhar on 11/1/19.
 //  Copyright © 2019 Ajay Sridhar. All rights reserved.
 //
 
 import UIKit
-import MapViewPlus
-import RealmSwift
 
-class OffenderListTableViewController: UITableViewController {
-    // Instance variables
-    var annotations: [AnnotationPlus] = []
-    var offenders: Results<OregonOffenders>?
-    let cellId = "cellId"
-    let realm = try! Realm(configuration: RealmConfig.main.configuration)
-    
+class ContactsTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Offenders"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        offenders = realm.objects(OregonOffenders.self)
-        tableView.reloadData()
+        self.navigationItem.title = "Safety Contacts"
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,23 +23,25 @@ class OffenderListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return offenders?.count ?? 0
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
-    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
-        if let offender = offenders?[indexPath.row] {
-            cell.textLabel?.text = "\(offender.firstName) \(offender.middleName) \(offender.lastName) \(offender.suffix)"
-        }
-        else {
-            cell.textLabel?.text = ""
-        }
+
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -95,29 +87,5 @@ class OffenderListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
 
-// MARK: - Search Bar Methods
-extension OffenderListTableViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text!)
-//        offenders = offenders?.filter("firstName CONTAINS[cd]", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
-        let subpredicates = ["firstName", "lastName"].map { property in
-            NSPredicate(format: "%K CONTAINS[cd] %@", property, searchBar.text!)
-        }
-        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
-        offenders = realm.objects(OregonOffenders.self).filter(predicate)
-        tableView.reloadData()
-    }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text?.count == 0 {
-//            loadOffenders()
-//
-//            DispatchQueue.main.async {
-//                searchBar.resignFirstResponder()
-//            }
-//
-//        }
-//    }
 }
