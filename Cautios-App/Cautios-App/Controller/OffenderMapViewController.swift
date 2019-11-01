@@ -12,10 +12,6 @@ import CoreLocation
 import RealmSwift
 import MapViewPlus
 
-//protocol ReceiveLocationDelegate {
-//    func receiveUserLocation(location: CLLocationCoordinate2D)
-//}
-
 class OffenderMapViewController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: MapViewPlus!
@@ -27,11 +23,11 @@ class OffenderMapViewController: UIViewController {
     var currentCoordinate: CLLocationCoordinate2D!
     let realm = try! Realm(configuration: RealmConfig.main.configuration)
     var offenders: Results<OregonOffenders>?
-//    var textMessageLocationDelegate: ReceiveLocationDelegate?
+    var annotations: [AnnotationPlus] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self as? MKMapViewDelegate
+        mapView.delegate = self as MKMapViewDelegate
         checkLocationServices()
         loadOffenders()
         annotateOffenders()
@@ -39,30 +35,12 @@ class OffenderMapViewController: UIViewController {
     
     // MARK: - Data Manipulation Methods
     /***************************************************************/
-    
     func loadOffenders() {
         offenders = realm.objects(OregonOffenders.self)
     }
     
-    // MARK: - Prepare for Segue Methods
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        if segue.identifier == "sendDataBackwards" {
-////    //            let firstVC = segue.destination as! ViewController
-////    //            firstVC.delegate = self
-////
-////        }
-//        print("seeeeguueeee")
-//        if let userLocation: CLLocationCoordinate2D = currentCoordinate {
-//            locationDelegate?.receiveUserLocation(location: userLocation)
-//            dismiss(animated: true, completion: nil)
-//            print("user location sent")
-//        }
-//    }
-    
-    
     // MARK: - Map Methods
     /***************************************************************/
-    
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
@@ -75,35 +53,16 @@ class OffenderMapViewController: UIViewController {
             if offenders.count <= 0 {
                 return
             }
-            var annotations: [AnnotationPlus] = []
             for offender in offenders {
-            // print("Clustering item \(i)")
                 let lat = offender.residenceLatitude
                 let lng = offender.residenceLongitude
-                let name = offender.firstName + " " + offender.middleName + " " + offender.lastName + " " + offender.suffix
-                let address = (offender.residenceStreetNumber + " " + offender.residenceStreetName + " " + offender.residenceCity + ", " + offender.residenceState + " " + String(offender.residenceZip)).uppercased()
-                let inputFormatter = DateFormatter()
-                inputFormatter.dateFormat = "MM/dd/yyyy"
-                guard let birthDate : Date = inputFormatter.date(from: offender.dateOfBirth) else { fatalError() }
-                let form = DateComponentsFormatter()
-                form.maximumUnitCount = 1
-                form.unitsStyle = .full
-                form.allowedUnits = [.year]
-                let age = form.string(from: birthDate, to: Date())
-                var height: String = String(offender.height / 100) + "' " + String(offender.height % 100) + "\""
-                var weight = offender.weight
-                var eyeColor = offender.eyes == "BLU" ? "Blue" : (offender.eyes  == "BRO" ? "Brown" : (offender.eyes  == "HAZ" ? "Hazel" : (offender.eyes  == "GRY" ? "Gray" : (offender.eyes  == "GRN" ? "Green" : (offender.eyes  == "BLK" ? "Black" : ("Not available"))))))
-                var hairColor = offender.hair == "BLN" ? "Blond" : (offender.hair  == "BRO" ? "Brown" : (offender.hair  == "WHI" ? "White" : (offender.hair  == "GRY" ? "Gray" : (offender.hair  == "RED" ? "Red" : (offender.hair  == "BLK" ? "Black" : ("Not available"))))))
-                var info = "Address: \(address) \nAge: \(age!) \nHeight: \(height) \nWeight: \(weight) lbs \nHair Color: \(hairColor) \nEye Color: \(eyeColor)"
-//                let annotation = MKPointAnnotation()
-//                annotation.coordinate = CLLocationCoordinate2DMake(lat, lng)
-//                annotation.title = name
-//                annotation.subtitle = "Address: \(address) \nAge: \(age!) Height: \(height) \nWeight: \(weight) lbs \nHair Color: \(hairColor) \nEye Color: \(eyeColor)"
-//                mapKitView.addAnnotation(annotation)
-                let viewModel = OffenderCalloutViewModel(name: name, info: info)
+                let viewModel = OffenderCalloutViewModel(offender: offender)
                 let annotation = AnnotationPlus(viewModel: viewModel, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lng))
                 annotations.append(annotation)
             }
+            let navListTab = self.tabBarController?.viewControllers?[1] as! UINavigationController
+            let offenderListTab = navListTab.topViewController as! OffenderListTableViewController
+            offenderListTab.annotations = annotations
             mapView.setup(withAnnotations: annotations)
         }
     }
@@ -118,7 +77,7 @@ class OffenderMapViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
         else {
-            // let user use app without location services or show alert
+            // TODO: - let user use app without location services or show alert
         }
     }
     
@@ -147,7 +106,6 @@ class OffenderMapViewController: UIViewController {
             break
         }
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
@@ -159,10 +117,8 @@ extension OffenderMapViewController: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         currentCoordinate = location.coordinate
         if let userLocation: CLLocationCoordinate2D = currentCoordinate {
-            var sosMessageTab = self.tabBarController?.viewControllers?[2] as! SOSMessageViewController
+            let sosMessageTab = self.tabBarController?.viewControllers?[2] as! SOSMessageViewController
             sosMessageTab.userLocation = userLocation
-            //            textMessageLocationDelegate!.receiveUserLocation(location: userLocation)
-            // dismiss(animated: true, completion: nil)
             print("user location sent: \(userLocation)")
         }
         mapView.userTrackingMode = .followWithHeading
@@ -176,7 +132,6 @@ extension OffenderMapViewController: CLLocationManagerDelegate {
     }
     
 }
-
 extension OffenderMapViewController: MapViewPlusDelegate {
     func mapView(_ mapView: MapViewPlus, imageFor annotation: AnnotationPlus) -> UIImage {
         return UIImage(named: "annotation-1.png")!

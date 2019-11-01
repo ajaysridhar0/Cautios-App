@@ -36,7 +36,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1030" y="-160"/>
+            <point key="canvasLocation" x="-1626" y="-161"/>
+        </scene>
+        <!--Offender List Table View Controller-->
+        <scene sceneID="FEG-y5-cLu">
+            <objects>
+                <tableViewController id="TSi-8v-D2b" customClass="OffenderListTableViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCg-em-twx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4XM-lz-Lns">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4XM-lz-Lns" id="ffP-KF-hzB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TSi-8v-D2b" id="31X-KL-i8a"/>
+                            <outlet property="delegate" destination="TSi-8v-D2b" id="ttU-w6-OSp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="GzT-pt-PrO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jI-Ok-BtM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="668" y="-161.46926536731635"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VfA-cf-P4w">
@@ -52,23 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-Zv-ACQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="-160"/>
-        </scene>
-        <!--Offenders List-->
-        <scene sceneID="dan-7b-ZLb">
-            <objects>
-                <viewController id="VLy-b7-HZQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kSP-mu-X1C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="bWl-lF-0wI"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Offenders List" image="list.bullet" catalog="system" id="8Cv-IO-rES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch5-1E-xQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="694" y="-159"/>
+            <point key="canvasLocation" x="3111.1999999999998" y="-161.46926536731635"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Edu-1K-EVl">
@@ -85,7 +98,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DWM-JU-qsc"/>
-                        <segue destination="VLy-b7-HZQ" kind="relationship" relationship="viewControllers" id="Qse-xn-XF3"/>
+                        <segue destination="72G-sV-ko6" kind="relationship" relationship="viewControllers" id="pfg-qS-zKN"/>
                         <segue destination="tk8-BH-ghx" kind="relationship" relationship="viewControllers" id="1HM-e7-qr5"/>
                         <segue destination="lah-8g-gWx" kind="relationship" relationship="viewControllers" id="bFD-fX-U20"/>
                     </connections>
@@ -125,7 +138,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAT-rU-LMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="-161"/>
+            <point key="canvasLocation" x="2024.8" y="-161.46926536731635"/>
+        </scene>
+        <!-- -->
+        <scene sceneID="GAa-s9-eIp">
+            <objects>
+                <navigationController title=" " automaticallyAdjustsScrollViewInsets="NO" id="72G-sV-ko6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Offenders List" image="list.bullet" catalog="system" id="BVH-Bg-cuE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zFd-he-Zuw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TSi-8v-D2b" kind="relationship" relationship="rootViewController" id="6Jd-ZL-gQu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6JN-yN-B9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271.19999999999999" y="-161.46926536731635"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,8 @@
 		63F970283DC5812E1B8A0E2C /* libPods-Cautios-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD322D6FB4C94C1058265C11 /* libPods-Cautios-App.a */; };
 		7710DA8B236537D5009D157C /* OffenderAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7710DA8A236537D5009D157C /* OffenderAnnotation.swift */; };
 		771B5FA8232F0FC6000A1B16 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */; };
+		771E7ADE236B9B1E008E2F2B /* OffenderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E7ADD236B9B1E008E2F2B /* OffenderListTableViewController.swift */; };
+		771E7AE2236BB681008E2F2B /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 771E7AE1236BB67B008E2F2B /* default.realm */; };
 		771F3A3C236020F80081ED8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771F3A3B236020F80081ED8A /* MapKit.framework */; };
 		772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */; };
 		772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772ADC622367C17800D546E7 /* OffenderCalloutView.xib */; };
@@ -28,6 +30,8 @@
 		4F47AFAFA37807A65F168ADF /* Pods-Cautios-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cautios-App.debug.xcconfig"; path = "Target Support Files/Pods-Cautios-App/Pods-Cautios-App.debug.xcconfig"; sourceTree = "<group>"; };
 		7710DA8A236537D5009D157C /* OffenderAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderAnnotation.swift; sourceTree = "<group>"; };
 		771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		771E7ADD236B9B1E008E2F2B /* OffenderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderListTableViewController.swift; sourceTree = "<group>"; };
+		771E7AE1236BB67B008E2F2B /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = ../../../default.realm; sourceTree = "<group>"; };
 		771F3A3B236020F80081ED8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderCalloutViewModel.swift; sourceTree = "<group>"; };
 		772ADC622367C17800D546E7 /* OffenderCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffenderCalloutView.xib; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				77AB2102232C6C1700B80BA3 /* Assets.xcassets */,
+				771E7AE1236BB67B008E2F2B /* default.realm */,
 				779CA47E232DE1B5001B7E79 /* default-OR.realm */,
 			);
 			path = Assets;
@@ -75,6 +80,7 @@
 				77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */,
 				772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */,
 				772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */,
+				771E7ADD236B9B1E008E2F2B /* OffenderListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771E7AE2236BB681008E2F2B /* default.realm in Resources */,
 				779CA47F232DE1DF001B7E79 /* default-OR.realm in Resources */,
 				772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */,
 				77AB2106232C6C1700B80BA3 /* LaunchScreen.storyboard in Resources */,
@@ -266,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771E7ADE236B9B1E008E2F2B /* OffenderListTableViewController.swift in Sources */,
 				772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */,
 				772ADC682367DF1000D546E7 /* OffenderCalloutView.swift in Sources */,
 				77AB20FE232C6C1600B80BA3 /* OffenderMapViewController.swift in Sources */,

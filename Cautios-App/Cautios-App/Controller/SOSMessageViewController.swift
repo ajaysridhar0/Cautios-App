@@ -21,7 +21,7 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sendHelpMessageButton.layer.cornerRadius = sendHelpMessageButton.frame.size.height/2
         // Do any additional setup after loading the view.
     }
     

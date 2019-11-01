@@ -23,8 +23,8 @@ class OregonOffenders: Object{
     @objc dynamic var residenceState: String = ""
     @objc dynamic var residenceZip: Int = 0
     @objc dynamic var residenceCounty: String = ""
-    @objc dynamic var residenceLatitude: Double = 0
-    @objc dynamic var residenceLongitude: Double = 0
+    @objc dynamic var residenceLatitude: Double = 0.0
+    @objc dynamic var residenceLongitude: Double = 0.0
     @objc dynamic var height: Int = 0
     @objc dynamic var weight: Int = 0
     @objc dynamic var hair: String = ""
