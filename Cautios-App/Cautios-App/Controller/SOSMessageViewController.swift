@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 import CoreLocation
+import RealmSwift
 
 class SOSMessageViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextViewDelegate {
     
@@ -20,11 +21,14 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
     
     // Instance Variables
     var userLocation: CLLocationCoordinate2D?
+    var contacts: Results<Contact>?
     let defaults = UserDefaults.standard
+    let realm = try! Realm()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadContacts()
         (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .portrait
         
         messageTextView.delegate = self
@@ -59,12 +63,17 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
             else {
                 messageVC.body = messageTextView.text!
             }
-                   
-            messageVC.recipients = ["7163904739", "7164716561", "7169099693"]
+            for contact in contacts! {
+                messageVC.recipients?.append(contact.number)
+            }
+            print(messageVC.recipients)
             messageVC.messageComposeDelegate = self
             self.present(messageVC, animated: true, completion: nil)
         }
         else {
+//            for contact in contacts! {
+//                print(contact.number)
+//            }
             // TODO: - show that this device cannot send text messages through alert
         }
     }
@@ -89,6 +98,11 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
     func textViewDidEndEditing(_ textView: UITextView) {
         defaults.set(messageTextView.text!, forKey: "HelpMessage")
         print("The user stopped typing the help message")
+    }
+    
+    // MARK: - Load contacts method
+    func loadContacts() {
+        contacts = realm.objects(Contact.self)
     }
     
     // MARK: - Button Pressed Methods
