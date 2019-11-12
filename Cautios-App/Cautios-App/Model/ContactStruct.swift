@@ -12,4 +12,5 @@ struct ContactStruct {
     let firstName: String
     let familyName: String
     let number: String
+    var isSafety: Bool
 }

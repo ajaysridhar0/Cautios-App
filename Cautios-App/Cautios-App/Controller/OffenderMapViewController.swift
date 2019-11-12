@@ -33,6 +33,7 @@ class OffenderMapViewController: UIViewController {
         annotateOffenders()
     }
     
+    
     // MARK: - Data Manipulation Methods
     /***************************************************************/
     func loadOffenders() {

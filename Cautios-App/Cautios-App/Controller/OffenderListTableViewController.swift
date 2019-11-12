@@ -34,11 +34,6 @@ class OffenderListTableViewController: UITableViewController {
 //        offenders = realm.objects(OregonOffenders.self)
         loadTableViewData(offenders: realm.objects(OregonOffenders.self))
         tableView.reloadData()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -60,7 +55,7 @@ class OffenderListTableViewController: UITableViewController {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) else { return UITableViewCell() }
             cell.textLabel?.text = tableViewData[indexPath.section].title
-            cell.backgroundColor = .black
+            cell.backgroundColor = .clear
             return cell
         }
         else {
@@ -118,7 +113,7 @@ extension OffenderListTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text!)
 //        offenders = offenders?.filter("firstName CONTAINS[cd]", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
-        let subpredicates = ["firstName", "lastName"].map { property in
+        let subpredicates = ["firstName", "middleName", "lastName", "residenceCity"].map { property in
             NSPredicate(format: "%K CONTAINS[cd] %@", property, searchBar.text!)
         }
         let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
@@ -133,15 +128,5 @@ extension OffenderListTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-//        if searchBar.text?.count == 0 {
-//            loadTableViewData(offenders: realm.objects(OregonOffenders.self))
-//            DispatchQueue.main.async {
-//                searchBar.resignFirstResponder()
-//            }
-//
-//        }
-    }
 }
 
