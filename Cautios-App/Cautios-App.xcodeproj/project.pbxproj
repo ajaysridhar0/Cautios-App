@@ -14,7 +14,7 @@
 		771E7AE2236BB681008E2F2B /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 771E7AE1236BB67B008E2F2B /* default.realm */; };
 		771E7AE4236CC380008E2F2B /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E7AE3236CC37F008E2F2B /* ContactsTableViewController.swift */; };
 		771E7AE6236CC4CD008E2F2B /* SOSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E7AE5236CC4CD008E2F2B /* SOSNavigationController.swift */; };
-		771E7AE8236CF27F008E2F2B /* ContactStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E7AE7236CF27F008E2F2B /* ContactStruct.swift */; };
+		771E7AE8236CF27F008E2F2B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E7AE7236CF27F008E2F2B /* Contact.swift */; };
 		771F3A3C236020F80081ED8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771F3A3B236020F80081ED8A /* MapKit.framework */; };
 		772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */; };
 		772ADC632367C17800D546E7 /* OffenderCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772ADC622367C17800D546E7 /* OffenderCalloutView.xib */; };
@@ -36,7 +36,7 @@
 		771E7AE1236BB67B008E2F2B /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = ../../../default.realm; sourceTree = "<group>"; };
 		771E7AE3236CC37F008E2F2B /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		771E7AE5236CC4CD008E2F2B /* SOSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSNavigationController.swift; sourceTree = "<group>"; };
-		771E7AE7236CF27F008E2F2B /* ContactStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStruct.swift; sourceTree = "<group>"; };
+		771E7AE7236CF27F008E2F2B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		771F3A3B236020F80081ED8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderCalloutViewModel.swift; sourceTree = "<group>"; };
 		772ADC622367C17800D546E7 /* OffenderCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffenderCalloutView.xib; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSMessageViewController.swift; sourceTree = "<group>"; };
 		779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonOffenders.swift; sourceTree = "<group>"; };
 		779CA47E232DE1B5001B7E79 /* default-OR.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "default-OR.realm"; sourceTree = "<group>"; };
-		77AB20F8232C6C1600B80BA3 /* Cautios-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cautios-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77AB20F8232C6C1600B80BA3 /* Cautios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cautios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffenderMapViewController.swift; sourceTree = "<group>"; };
 		77AB2100232C6C1600B80BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,10 +85,10 @@
 				77AB20FB232C6C1600B80BA3 /* AppDelegate.swift */,
 				77AB20FD232C6C1600B80BA3 /* OffenderMapViewController.swift */,
 				772ADC672367DF1000D546E7 /* OffenderCalloutView.swift */,
-				772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */,
 				771E7ADD236B9B1E008E2F2B /* OffenderListTableViewController.swift */,
-				771E7AE3236CC37F008E2F2B /* ContactsTableViewController.swift */,
 				771E7AE5236CC4CD008E2F2B /* SOSNavigationController.swift */,
+				772ADC6F23680B8500D546E7 /* SOSMessageViewController.swift */,
+				771E7AE3236CC37F008E2F2B /* ContactsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 				772ADC602367C08900D546E7 /* OffenderCalloutViewModel.swift */,
 				771B5FA7232F0FC5000A1B16 /* RealmConfig.swift */,
 				779CA47A232DC9E1001B7E79 /* OregonOffenders.swift */,
-				771E7AE7236CF27F008E2F2B /* ContactStruct.swift */,
+				771E7AE7236CF27F008E2F2B /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		77AB20F9232C6C1600B80BA3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77AB20F8232C6C1600B80BA3 /* Cautios-App.app */,
+				77AB20F8232C6C1600B80BA3 /* Cautios.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				7715FD372378EA7900806540 /* IQKeyboardManagerSwift */,
 			);
 			productName = "Cautios-App";
-			productReference = 77AB20F8232C6C1600B80BA3 /* Cautios-App.app */;
+			productReference = 77AB20F8232C6C1600B80BA3 /* Cautios.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -290,7 +290,7 @@
 				771E7ADE236B9B1E008E2F2B /* OffenderListTableViewController.swift in Sources */,
 				772ADC612367C08900D546E7 /* OffenderCalloutViewModel.swift in Sources */,
 				772ADC682367DF1000D546E7 /* OffenderCalloutView.swift in Sources */,
-				771E7AE8236CF27F008E2F2B /* ContactStruct.swift in Sources */,
+				771E7AE8236CF27F008E2F2B /* Contact.swift in Sources */,
 				77AB20FE232C6C1600B80BA3 /* OffenderMapViewController.swift in Sources */,
 				779CA47B232DC9E1001B7E79 /* OregonOffenders.swift in Sources */,
 				771E7AE6236CC4CD008E2F2B /* SOSNavigationController.swift in Sources */,
@@ -454,7 +454,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cautios;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,7 +476,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ajay.sridhar.Cautios-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cautios;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

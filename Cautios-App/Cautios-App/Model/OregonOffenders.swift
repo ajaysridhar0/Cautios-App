@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class OregonOffenders: Object{
+class OregonOffenders: Object {
     @objc dynamic var firstName: String = ""
     @objc dynamic var middleName: String = ""
     @objc dynamic var lastName: String = ""

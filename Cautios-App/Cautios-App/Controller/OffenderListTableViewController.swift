@@ -66,8 +66,8 @@ class OffenderListTableViewController: UITableViewController {
             cell.textLabel?.lineBreakMode = .byWordWrapping
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+//        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,7 +103,7 @@ class OffenderListTableViewController: UITableViewController {
             
             let name = offender.firstName + " " + offender.middleName + " " + offender.lastName + " " + offender.suffix
             
-            tableViewData.append(cellData(opened: false, title: name, sectionData: ["Address: \(address)", "Age: \(age!)", "Height: \(height)", "Hair Color: \(hairColor)", "Eye Color: \(eyeColor)"]))
+            tableViewData.append(cellData(opened: false, title: name, sectionData: ["Address: \(address)", "Age: \(age!)", "Height: \(height)", "Weight: \(weight)", "Hair Color: \(hairColor)", "Eye Color: \(eyeColor)"]))
         }
     }
 }

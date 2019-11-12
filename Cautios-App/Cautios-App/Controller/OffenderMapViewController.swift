@@ -16,7 +16,6 @@ class OffenderMapViewController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: MapViewPlus!
     
-    
     // TODO: Declare instance variables here:
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
@@ -106,6 +105,8 @@ class OffenderMapViewController: UIViewController {
             break
         case .authorizedAlways:
             break
+        @unknown default:
+            fatalError()
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
