@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Offenders Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="OffenderMapViewController" id="BYZ-38-t0r" customClass="OffenderMapViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffenderMapViewController" id="BYZ-38-t0r" customClass="OffenderMapViewController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
         <!--Offender List Table View Controller-->
         <scene sceneID="FEG-y5-cLu">
             <objects>
-                <tableViewController id="TSi-8v-D2b" customClass="OffenderListTableViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="TSi-8v-D2b" customClass="OffenderListTableViewController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCg-em-twx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
         <!--Help Button-->
         <scene sceneID="AVh-Mw-HvZ">
             <objects>
-                <viewController id="tk8-BH-ghx" customClass="SOSMessageViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tk8-BH-ghx" customClass="SOSMessageViewController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T47-VO-h7o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,11 +169,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzs-EC-VjZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzs-EC-VjZ">
                                 <rect key="frame" x="97.5" y="78" width="180" height="180"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" title="Help">
+                                <state key="normal" title="Help" image="cautios-eye">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -230,7 +229,7 @@
         <!--Contacts Table View Controller-->
         <scene sceneID="FPm-PE-9EC">
             <objects>
-                <tableViewController id="WKZ-Bd-FQO" customClass="ContactsTableViewController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WKZ-Bd-FQO" customClass="ContactsTableViewController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JJq-tN-860">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,7 +280,7 @@
         <!--SOS-->
         <scene sceneID="vPG-pb-3mw">
             <objects>
-                <navigationController storyboardIdentifier="SOSNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Tkb-Vy-k1e" customClass="SOSNavigationController" customModule="Cautios_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SOSNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Tkb-Vy-k1e" customClass="SOSNavigationController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SOS" image="message.circle.fill" catalog="system" id="QP0-oX-oq0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4zF-Me-Z3b">
@@ -318,6 +317,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cautios-eye" width="1536" height="1536"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="mappin.circle.fill" catalog="system" width="64" height="60"/>

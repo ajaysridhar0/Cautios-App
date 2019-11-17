@@ -73,9 +73,8 @@ class ContactsTableViewController: UITableViewController {
                 
                 let contactToAppend = Contact()
                 if (self.contacts?.count ?? -1 > 0) {
-                    print("more than 1 contact generated")
                     for i in 0...(self.contacts?.count ?? 1) - 1 {
-                        if self.contacts?[i].number == number {
+                        if self.contacts?[i].number == number || (self.contacts?[i].firstName == firstName && self.contacts?[i].familyName == familyName) {
                             contactToAppend.firstName = firstName
                             contactToAppend.familyName = familyName
                             contactToAppend.number = self.contacts?[i].number ?? ""
@@ -85,14 +84,12 @@ class ContactsTableViewController: UITableViewController {
                             do {
                                 try self.realm.write {
                                     self.realm.delete((self.contacts?[i])!)
-                                    print("Contact successfully deleted")
                                 }
                             } catch { print("Error deleting contact to update it: \(error)") }
                         }
                     }
                 }
                 if isNewContact {
-                    print("Is new contact")
                     contactToAppend.firstName = firstName
                     contactToAppend.familyName = familyName
                     contactToAppend.number = number ?? ""
