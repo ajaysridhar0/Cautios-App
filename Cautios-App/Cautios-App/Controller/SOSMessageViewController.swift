@@ -63,8 +63,11 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
             else {
                 messageVC.body = messageTextView.text!
             }
+            messageVC.recipients = []
             for contact in contacts! {
-                messageVC.recipients?.append(contact.number)
+                if contact.isSafety {
+                    messageVC.recipients?.append(contact.number)
+                }
             }
             print(messageVC.recipients)
             messageVC.messageComposeDelegate = self
