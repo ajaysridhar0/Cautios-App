@@ -57,7 +57,7 @@ class ContactsTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return contacts?.count ?? 0
+        return contacts?.count ?? 1
     }
     
     // MARK: - Contact fetching method
@@ -98,12 +98,12 @@ class ContactsTableViewController: UITableViewController {
                 }
             }
         } catch { print("getting contacts did not work") }
+        
         tableView.reloadData()
-        print(contacts?.first?.firstName)
     }
     
     func loadRealmContacts() {
-        contacts = realm.objects(Contact.self)
+        contacts = realm.objects(Contact.self).sorted(byKeyPath: "firstName", ascending: true)
         tableView.reloadData()
     }
     

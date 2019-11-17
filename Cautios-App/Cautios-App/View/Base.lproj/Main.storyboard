@@ -29,9 +29,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Offenders Map" id="7lm-zS-x6p"/>
+                    <navigationItem key="navigationItem" title="Offenders Map" id="7lm-zS-x6p">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="jLD-oS-7lv">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="RecenterButtonPressed:" destination="BYZ-38-t0r" id="fjA-cD-o7u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="0OQ-wa-vlV" id="4yK-7Y-G4w"/>
+                        <outlet property="recenterButton" destination="jLD-oS-7lv" id="rEe-PN-gx7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -50,7 +58,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="barTintColor" red="0.57588435913705582" green="0.13394239399804111" blue="0.11236800711751162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="TSi-8v-D2b" id="al6-oP-OJG"/>
@@ -89,22 +96,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jI-Ok-BtM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1607.2" y="-161.46926536731635"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="VfA-cf-P4w">
-            <objects>
-                <viewController id="lah-8g-gWx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yLv-Nf-1TO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="2Uc-5B-PN8"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="KWQ-p9-DPe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-Zv-ACQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2900" y="-1107"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Edu-1K-EVl">
@@ -210,6 +201,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Help Button" id="02a-oD-vcg">
                         <barButtonItem key="rightBarButtonItem" title="Add Contacts" image="person.badge.plus.fill" catalog="system" id="SNM-R2-Xfr">
+                            <color key="tintColor" red="0.5" green="0.1635696468" blue="0.1307551062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="WKZ-Bd-FQO" kind="show" id="Jo2-tX-bP6"/>
                             </connections>
@@ -250,9 +242,7 @@
                             <outlet property="delegate" destination="WKZ-Bd-FQO" id="UBq-yk-PZV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Kx2-jJ-ysi">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="2Ts-rH-Aqg"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Kx2-jJ-ysi"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vir-p9-89b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,11 +267,11 @@
             </objects>
             <point key="canvasLocation" x="668" y="-161.46926536731635"/>
         </scene>
-        <!--SOS-->
+        <!--Help Button-->
         <scene sceneID="vPG-pb-3mw">
             <objects>
                 <navigationController storyboardIdentifier="SOSNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Tkb-Vy-k1e" customClass="SOSNavigationController" customModule="Cautios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SOS" image="message.circle.fill" catalog="system" id="QP0-oX-oq0"/>
+                    <tabBarItem key="tabBarItem" title="Help Button" image="message.circle.fill" catalog="system" id="QP0-oX-oq0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4zF-Me-Z3b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -300,7 +290,7 @@
         <scene sceneID="dPr-MI-SDN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x1Q-8D-j6b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Offenders Map" image="mappin.circle.fill" catalog="system" id="jgh-SH-4Mi"/>
+                    <tabBarItem key="tabBarItem" title="Offenders Map" image="map" catalog="system" id="jgh-SH-4Mi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LBc-2A-SLG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -318,11 +308,10 @@
     </scenes>
     <resources>
         <image name="cautios-eye" width="1536" height="1536"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
-        <image name="mappin.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="map" catalog="system" width="64" height="56"/>
+        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
         <image name="message.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.badge.plus.fill" catalog="system" width="64" height="58"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

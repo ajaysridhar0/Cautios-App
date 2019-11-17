@@ -15,6 +15,7 @@ import MapViewPlus
 class OffenderMapViewController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: MapViewPlus!
+    @IBOutlet weak var recenterButton: UIBarButtonItem!
     
     // TODO: Declare instance variables here:
     let locationManager = CLLocationManager()
@@ -32,6 +33,11 @@ class OffenderMapViewController: UIViewController {
         annotateOffenders()
     }
     
+    // MARK: - Recenter Button
+    @IBAction func RecenterButtonPressed(_ sender: Any) {
+        centerViewOnUserLocation()
+    }
+    
     
     // MARK: - Data Manipulation Methods
     /***************************************************************/
@@ -44,6 +50,10 @@ class OffenderMapViewController: UIViewController {
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
+        else {
+            let region = MKCoordinateRegion.init(center: CLLocationCoordinate2D(latitude: 44.9429, longitude: -123.0351), latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
         }
     }
@@ -66,7 +76,6 @@ class OffenderMapViewController: UIViewController {
             mapView.setup(withAnnotations: annotations)
         }
     }
-    
     
     
     // MARK: - Location Functions
@@ -96,14 +105,17 @@ class OffenderMapViewController: UIViewController {
             break
         case .denied:
             // show alert instructing them how to turn on permission
+            centerViewOnUserLocation()
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             break
         case .restricted:
             // Show an alert letting them know what is up
+            centerViewOnUserLocation()
             break
         case .authorizedAlways:
+            centerViewOnUserLocation()
             break
         @unknown default:
             fatalError()
