@@ -30,8 +30,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Offenders Map" id="7lm-zS-x6p">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="mappin.and.ellipse" catalog="system" id="jLD-oS-7lv">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Center" id="jLD-oS-7lv">
                             <connections>
                                 <action selector="RecenterButtonPressed:" destination="BYZ-38-t0r" id="fjA-cD-o7u"/>
                             </connections>
@@ -128,75 +127,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-eL-EUG">
-                                <rect key="frame" x="87" y="68" width="201" height="200"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Phw-P1-bMT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLu-Qt-idu">
+                                <rect key="frame" x="37" y="97" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="cautios-eye"/>
                                 <connections>
-                                    <action selector="sendHelpMessage:" destination="tk8-BH-ghx" eventType="touchUpInside" id="TCw-UF-8gU"/>
+                                    <action selector="sendHelpMessageButtonPressed:" destination="tk8-BH-ghx" eventType="touchUpInside" id="8AA-RU-no8"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVN-p9-Bs2">
-                                <rect key="frame" x="226" y="276" width="51" height="31"/>
-                                <color key="onTintColor" red="0.5" green="0.1635696468" blue="0.1307551062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anR-D6-hoI">
-                                <rect key="frame" x="100" y="281" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Help! Come to my location - This message was sent through the Cautios App" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-OO-aqG">
+                                <rect key="frame" x="67" y="405" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5" green="0.1635696468" blue="0.1307551062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.29537412282174014" green="0.10551834870234575" blue="0.077674061744734693" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Help! - This message was sent through the Cautios App" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nO4-ke-Blk">
-                                <rect key="frame" x="16" y="315" width="343" height="128"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzs-EC-VjZ">
-                                <rect key="frame" x="97.5" y="78" width="180" height="180"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Help" image="cautios-eye">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendHelpMessagePressed:" destination="tk8-BH-ghx" eventType="touchUpInside" id="DD2-AV-fc2"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="yLq-eL-EUG" firstAttribute="centerY" secondItem="Qzs-EC-VjZ" secondAttribute="centerY" id="1Cj-5l-Aqf"/>
-                            <constraint firstItem="nO4-ke-Blk" firstAttribute="leading" secondItem="T47-VO-h7o" secondAttribute="leadingMargin" id="2to-Ti-hAK"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="Qzs-EC-VjZ" secondAttribute="bottom" constant="18" id="3Mw-v5-aXS"/>
-                            <constraint firstItem="nO4-ke-Blk" firstAttribute="top" secondItem="oVN-p9-Bs2" secondAttribute="bottom" constant="8" id="5bt-Ae-pSZ"/>
-                            <constraint firstItem="8k4-jr-WnD" firstAttribute="bottom" secondItem="nO4-ke-Blk" secondAttribute="bottom" constant="175" id="5oy-WQ-gFG"/>
-                            <constraint firstItem="8k4-jr-WnD" firstAttribute="trailing" secondItem="Qzs-EC-VjZ" secondAttribute="trailing" constant="97.5" id="Gp5-uq-0pE"/>
-                            <constraint firstItem="Qzs-EC-VjZ" firstAttribute="top" secondItem="8k4-jr-WnD" secondAttribute="top" constant="34" id="JVz-5l-5HH"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="Qzs-EC-VjZ" secondAttribute="bottom" constant="18" id="KeZ-op-ld0"/>
-                            <constraint firstItem="8k4-jr-WnD" firstAttribute="trailing" secondItem="oVN-p9-Bs2" secondAttribute="trailing" constant="100" id="Nd2-HY-9MT"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="centerY" secondItem="anR-D6-hoI" secondAttribute="centerY" id="UAf-ib-6oy"/>
-                            <constraint firstItem="yLq-eL-EUG" firstAttribute="top" secondItem="8k4-jr-WnD" secondAttribute="top" constant="24" id="V1n-WD-dR0"/>
-                            <constraint firstItem="yLq-eL-EUG" firstAttribute="centerX" secondItem="T47-VO-h7o" secondAttribute="centerX" id="aNW-Mb-RDw"/>
-                            <constraint firstItem="yLq-eL-EUG" firstAttribute="centerX" secondItem="nO4-ke-Blk" secondAttribute="centerX" id="aRe-Dr-jPd"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="yLq-eL-EUG" secondAttribute="bottom" constant="8" id="asy-k3-5kI"/>
-                            <constraint firstItem="8k4-jr-WnD" firstAttribute="trailing" secondItem="Qzs-EC-VjZ" secondAttribute="trailing" constant="97.5" id="d6M-Ja-JLt"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="Qzs-EC-VjZ" secondAttribute="bottom" constant="18" id="ddL-zQ-cKI"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="Qzs-EC-VjZ" secondAttribute="bottom" constant="18" id="eDF-XS-feQ"/>
-                            <constraint firstItem="oVN-p9-Bs2" firstAttribute="top" secondItem="Qzs-EC-VjZ" secondAttribute="bottom" constant="18" id="fKF-Gq-iJX"/>
-                            <constraint firstItem="8k4-jr-WnD" firstAttribute="trailing" secondItem="Qzs-EC-VjZ" secondAttribute="trailing" constant="97.5" id="kba-aM-LPW"/>
-                            <constraint firstItem="Qzs-EC-VjZ" firstAttribute="leading" secondItem="8k4-jr-WnD" secondAttribute="leading" constant="97.5" id="n7A-sS-6H8"/>
-                            <constraint firstItem="anR-D6-hoI" firstAttribute="leading" secondItem="8k4-jr-WnD" secondAttribute="leading" constant="100" id="pLi-co-X2g"/>
-                            <constraint firstItem="nO4-ke-Blk" firstAttribute="centerX" secondItem="yLq-eL-EUG" secondAttribute="centerX" id="pOx-uU-3Pj"/>
-                            <constraint firstItem="yLq-eL-EUG" firstAttribute="leading" secondItem="8k4-jr-WnD" secondAttribute="leading" constant="87" id="vhx-GG-3iR"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8k4-jr-WnD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help Button" id="02a-oD-vcg">
@@ -208,10 +157,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="borderOfButton" destination="yLq-eL-EUG" id="fv1-jS-fDQ"/>
-                        <outlet property="messageTextView" destination="nO4-ke-Blk" id="QRx-nV-EjO"/>
-                        <outlet property="sendHelpMessageButton" destination="Qzs-EC-VjZ" id="Xh8-aZ-fIr"/>
-                        <outlet property="sendLocationSwitch" destination="oVN-p9-Bs2" id="SzG-YQ-YI0"/>
+                        <outlet property="messageTextView" destination="mgv-OO-aqG" id="Evl-b5-19n"/>
+                        <outlet property="sendHelpMessageButton" destination="bLu-Qt-idu" id="OEt-nd-Kdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAT-rU-LMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,7 +257,6 @@
         <image name="cautios-eye" width="1536" height="1536"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="map" catalog="system" width="64" height="56"/>
-        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
         <image name="message.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.badge.plus.fill" catalog="system" width="64" height="58"/>
     </resources>
