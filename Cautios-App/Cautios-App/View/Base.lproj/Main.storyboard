@@ -135,7 +135,7 @@
                                     <action selector="sendHelpMessageButtonPressed:" destination="tk8-BH-ghx" eventType="touchUpInside" id="8AA-RU-no8"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Help! Here is my current location - This message was sent through the Cautios App" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-OO-aqG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-OO-aqG">
                                 <rect key="frame" x="67" y="405" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.5" green="0.1635696468" blue="0.1307551062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

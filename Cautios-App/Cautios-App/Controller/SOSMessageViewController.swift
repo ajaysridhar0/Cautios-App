@@ -14,10 +14,6 @@ import RealmSwift
 class SOSMessageViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextViewDelegate {
     
     // Outlet
-//    @IBOutlet weak var sendHelpMessageButton: UIButton!
-//    @IBOutlet weak var borderOfButton: UIButton!
-//    @IBOutlet weak var messageTextView: UITextView!
-//    @IBOutlet weak var sendLocationSwitch: UISwitch!
     @IBOutlet weak var sendHelpMessageButton: UIButton!
     @IBOutlet weak var messageTextView: UITextView!
     
@@ -36,7 +32,7 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
         super.viewDidLoad()
         loadContacts()
         (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .portrait
-        
+        messageTextView.delegate = self
         // UI Setup
         view.backgroundColor = .black
         
@@ -48,6 +44,13 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
         sendHelpMessageButton.clipsToBounds = true
         
         // messageTextView
+        if let helpMessage = defaults.string(forKey: "HelpMessage") {
+            messageTextView.text = helpMessage
+        }
+        else {
+            messageTextView.text = "Help! Here is my current location - This message was sent through the Cautios App"
+        }
+
         messageTextView.frame = CGRect(x: screenSize.width/2 - sendHelpMessageButton.frame.width/2, y: (screenSize.height) * 0.19 + sendHelpMessageButton.frame.height , width: sendHelpMessageButton.frame.width, height: screenSize.height - ((screenSize.height) * 0.19 + sendHelpMessageButton.frame.height) - 110)
         messageTextView.layer.cornerRadius = messageTextView.frame.size.width/32
         messageTextView.textContainerInset = UIEdgeInsets(top: 16, left: 10, bottom: 16, right: 10)
@@ -55,14 +58,6 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
         var frame = messageTextView.frame
         frame.size.height = messageTextView.contentSize.height
         messageTextView.frame = frame
-    
-        
-        if let helpMessage = defaults.string(forKey: "HelpMessage") {
-            messageTextView.text = helpMessage
-        }
-        else {
-            messageTextView.text = "Help! Here is my current location - This message was sent through the Cautios App"
-        }
     }
 
     // MARK: - MF Message Compose View Controller Delegate
