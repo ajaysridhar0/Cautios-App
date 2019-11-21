@@ -52,13 +52,16 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
         messageTextView.layer.cornerRadius = messageTextView.frame.size.width/32
         messageTextView.textContainerInset = UIEdgeInsets(top: 16, left: 10, bottom: 16, right: 10)
         messageTextView.font = .systemFont(ofSize: 16)
+        var frame = messageTextView.frame
+        frame.size.height = messageTextView.contentSize.height
+        messageTextView.frame = frame
     
         
         if let helpMessage = defaults.string(forKey: "HelpMessage") {
             messageTextView.text = helpMessage
         }
         else {
-            messageTextView.text = "Help! Come to my location - This message was sent through the Cautios App"
+            messageTextView.text = "Help! Here is my current location - This message was sent through the Cautios App"
         }
     }
 
