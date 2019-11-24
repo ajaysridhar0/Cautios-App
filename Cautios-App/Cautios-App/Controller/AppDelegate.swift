@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var restrictRotation:UIInterfaceOrientationMask = .portrait
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Manage the keyboard
         IQKeyboardManager.shared.enable = true

@@ -76,7 +76,6 @@ class SOSMessageViewController: UIViewController, MFMessageComposeViewController
                     messageVC.recipients?.append(contact.number)
                         }
                     }
-                    print(messageVC.recipients)
                     messageVC.messageComposeDelegate = self
                     self.present(messageVC, animated: true, completion: nil)
                 }
